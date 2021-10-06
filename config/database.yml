@@ -50,6 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: pai_movie_log_production
-  username: pai_movie_log
+  database: <%= ENV['PAI_MOVIE_LOG_DATABASE'] %>
+  username: <%= ENV['PAI_MOVIE_LOG_DATABASE_USERNAME'] %>
   password: <%= ENV['PAI_MOVIE_LOG_DATABASE_PASSWORD'] %>
+  host: <%= ENV['PAI_MOVIE_LOG_DATABASE_HOST'] %>
