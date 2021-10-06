@@ -1,0 +1,36 @@
+<div class="flex justify-center items-center h-screen w-full">
+    <div class="w-full bg-white rounded shadow-2xl p-8 m-4 mb-48 text-black">
+        <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">グラフ</h1>
+        <div class="graph-header flex justify-center">
+          <div class="graph-time w-1/2">合計: <%= sum_times %>分
+          <span class="block">(<%= to_hour %>時間)</span></div>
+          <div class="graph-period w-1/2">
+            <div class="relative">
+    <!-- Dropdown toggle button -->
+    <button class="flex items-center p-2 bg-white bg-gray-100 rounded-md">
+        <span class="mr-4" id="dropdown-graph-trigger"><%= @user.movies_period(@period).keys.first %> - <%= @user.movies_period(@period).keys.last %><i class="fas fa-sort-down mb-1 ml-2"></i></span>
+    </button>
+    <!-- Dropdown list -->
+    <div class="absolute z-10 left-0 top-10 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl w-44 hidden" id="dropdown-graph-menu">
+    <%= link_to "週間", user_path(@user, period: 'week'), class: 'block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white' %>
+    <%= link_to "月間", user_path(@user, period: 'month'), class: 'block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white' %>
+    <%= link_to "年間", user_path(@user, period: 'year'), class: 'block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white' %>
+    </div>
+</div> 
+          </div>
+        </div>
+        <div class="graph-content">
+            <%= line_chart @chart_movies %>
+        </div>
+    </div>
+</div>
+
+<script>
+     'use strict';
+     
+     let graphTrigger = document.getElementById('dropdown-graph-trigger');
+
+     graphTrigger.addEventListener('click', function(){
+       document.getElementById('dropdown-graph-menu').classList.toggle('hidden');
+     })
+</script>

@@ -1,0 +1,13 @@
+<% content_for :title do %>
+<%= @user.email %> 編集ページ
+<% end %>
+
+<!-- header -->
+<%= render 'layouts/partial/header' %>
+<!-- /header -->
+
+<div class="flex justify-center text-white">
+ <div class="w-3/4 p-2">
+   <%= render 'layouts/partial/movie_edit_form', locals: { user: @user, movie: @movie} %>
+ </div>
+</div>

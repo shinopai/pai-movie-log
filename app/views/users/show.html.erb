@@ -1,0 +1,26 @@
+<% content_for :title do %>
+<%= @user.email %> 詳細ページ
+<% end %>
+
+<!-- header -->
+<%= render 'layouts/partial/header' %>
+<!-- /header -->
+
+<div class="flex justify-center text-white items-baseline">
+ <div class="w-1/2 p-2">
+   <%= render 'layouts/partial/movie_form', locals: { user: @user} %>
+ </div>
+ <div class="w-1/2 p-2">
+    <%= render 'layouts/partial/graph', locals: { chart_movies: @chart_movies} %>
+ </div>
+</div>
+
+<!-- log content -->
+<%= render 'layouts/partial/log', locals: { movies: @movies} %>
+<!-- /log content -->
+
+<!-- pagination -->
+<div class="mt-10 text-center lg:w-3/4 lg:mx-auto">
+<%= paginate @movies %>
+</div>
+<!-- /pagination --> 

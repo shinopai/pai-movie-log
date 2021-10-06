@@ -4,6 +4,7 @@ services:
     image: mysql:latest
     volumes:
       - pai-sql:/var/lib/mysql
+      - ./my.cnf:/etc/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
 

@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PaiMovieLog</title>
+    <title>PaiMovieLog | <%= yield(:title) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if flash[:notice] %>
+    <p class="notice bg-green-300 text-white p-2 text-center"><%= notice %></p>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <p class="alert bg-red-300 text-white p-2 text-center"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

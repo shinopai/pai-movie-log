@@ -1,0 +1,60 @@
+<!-- log content for sp -->
+<div class="logs-wrapper-sp lg:hidden w-4/5 mx-auto mt-10">
+<h2 class="text-3xl">Logs</h2>
+<% @movies.each do |movie| %>
+<div class="logs-content-sp border-l-2 border-gray-300 mt-10 px-4">
+  <div class="logs-header-sp flex justify-center font-bold text-xl">
+    <div class="logs-time-sp w-1/2 text-left">
+    <% if movie.time.nil? %>
+    0分
+    <% else %>
+    <%= movie.time %>分
+    <% end %>
+    </div>
+    <div class="logs-date-sp w-1/2 text-right"><span class="mr-3"><%= time_ago_in_words(movie.created_at) %>前</span> 
+    <%= link_to edit_user_movie_path(current_user.id, movie) do %>
+    <i class="fas fa-pencil-alt text-blue-500"></i>
+    <% end %>
+    </div>
+  </div>
+  <div class="logs-memo-sp pt-5">
+    <%= movie.memo %>
+    <% if movie.image.attached? %>
+      <div class="mt-3"><%= image_tag movie.resize_image %></div>
+    <% end %>
+  </div>
+</div>
+<% end %>
+</div>
+<!-- /log content for sp -->
+
+<!-- log content fot pc -->
+<div class="logs-wrapper-pc hidden w-4/5 mx-auto mt-10 lg:block">
+<h2 class="text-3xl">Logs</h2>
+<% @movies.each do |movie| %>
+<div class="logs-content-pc mt-10 px-4 flex justify-center">
+<div class="logs-date-pc w-1/3 font-bold text-lg text-gray-600 text-center">
+ <%= time_ago_in_words(movie.created_at) %>前
+</div>
+<div class="w-2/3 border-l-2 border-gray-300 pl-2 text-lg">
+ <div class="logs-time-pc">
+     <% if movie.time.nil? %>
+    <span>0分</span>
+    <% else %>
+    <span><%= movie.time %>分</span>
+    <% end %>
+    <%= link_to edit_user_movie_path(current_user.id, movie) do %>
+  <i class="fas fa-pencil-alt text-blue-500 float-right"></i>
+  <% end %>
+</div>
+  <div class="logs-memo-pc pt-3">
+    <%= movie.memo %>
+        <% if movie.image.attached? %>
+      <div class="mt-3"><%= image_tag movie.resize_image %></div>
+    <% end %>
+  </div>
+</div>
+</div>
+<% end %>
+</div>
+<!-- /log content for pc -->

@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      movie: 投稿
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（再入力）
+      movie:
+        time: 記録時間
+        memo: メモ
+        image: 画像
+        user_id: ユーザーID
+        only_user_id: 入力欄

@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # user management
+  devise_for :users
+
+  # root path 
+  root 'home#index'
+
+  # guest login 
+  post '/users/guest_sign_in', to: 'home#guest_sign_in'
+
+  # route for users
+  resources :users do
+    # route for movies
+    resources :movies, only: %i(create edit update destroy)
+  end
+
+
 end

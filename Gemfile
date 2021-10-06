@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # test 
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -47,10 +49,40 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# user management
+gem 'devise'
+
+# japanization
+gem 'rails-i18n'
+
+# create sample data 
+gem 'faker'
+
+# pagination
+gem 'kaminari'
+
+# connect to S3
+gem 'aws-sdk-s3'
+
+# resize image 
+gem 'mini_magick'
+
+# generate image variants
+gem 'image_processing', '~> 1.2'
+
+# management env 
+gem "dotenv-rails"
+
+# create chart graph
+gem 'chartkick'
+gem 'groupdate'
+
+# debug 
+gem 'pry-rails'

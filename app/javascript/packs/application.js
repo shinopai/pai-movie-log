@@ -8,6 +8,16 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+// tailwind css 
+import '../css/tailwind.css';
+
+// fontawesome
+import '@fortawesome/fontawesome-free/js/all';
+
+// chart kick
+require('chartkick')
+require('chart.js')
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
